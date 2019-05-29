@@ -58,7 +58,20 @@ sub open_url ($)
       return;
     }
   }
-  elsif($^O =~ /^(MSWin32|cygwin|msys2?)$/)
+  elsif($^O eq 'MSWin32')
+  {
+    system 'start', $url;
+    return;
+  }
+  elsif($^O eq 'cygwin')
+  {
+    if(-x '/usr/bin/cygstart')
+    {
+      system '/usr/bin/cygstart', $url;
+      return;
+    }
+  }
+  elsif($^O =~ /^msys2?/)
   {
     # TODO
   }
