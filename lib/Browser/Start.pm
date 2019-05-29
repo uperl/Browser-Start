@@ -6,6 +6,7 @@ use 5.008001;
 use URI;
 use URI::file;
 use File::chdir;
+use File::Which qw( which );
 use base qw( Exporter );
 
 our @EXPORT = qw( open_url );
@@ -53,7 +54,20 @@ sub open_url ($)
   {
     if(-x "/usr/bin/open")
     {
-      system('/usr/bin/open', $url);
+      system '/usr/bin/open', $url;
+      return;
+    }
+  }
+  elsif($^O =~ /^(MSWin32|cygwin|msys2?)$/)
+  {
+    # TODO
+  }
+  else
+  {
+    my $xdg_open = which('xdg-open');
+    if($xdg_open)
+    {
+      system $xdg_open, $url;
       return;
     }
   }
