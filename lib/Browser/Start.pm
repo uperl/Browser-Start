@@ -93,10 +93,16 @@ FTP or sftp URL might open in some sort of file transfer client.
 
 =item L<Browser::Open>
 
-This module provides a similar functionality.  For me, it doesn't support some
-platforms well or at all that I intend of supporting, and some of the options it
-chooses are dated or will interrupt the terminal the Perl script is running in
-(example: C<lynx>).
+This module provides a similar functionality.
+
+It doesn't support some platforms like OpenBSD and NetBSD which honestly should be
+treated similar to Linux and FreeBSD.
+
+It is more aggressive than I think it should be about choosing specific browsers
+that may or may not have been configured by users or normal system defaults.
+
+It may open URLs using console browsers like C<lynx> which can muck up your Perl
+script.
 
 =back
 
