@@ -1,12 +1,14 @@
-# Browser::Start [![Build Status](https://secure.travis-ci.org/plicease/Browser-Start.png)](http://travis-ci.org/plicease/Browser-Start)
+# Browser::Start ![linux](https://github.com/uperl/Browser-Start/workflows/linux/badge.svg)
 
 Open a URL in a web browser
 
 # SYNOPSIS
 
-    use Browser::Start;
-    
-    open_url 'http://metacpan.org';
+```perl
+use Browser::Start;
+
+open_url 'http://metacpan.org';
+```
 
 # DESCRIPTION
 
@@ -17,7 +19,9 @@ and user configuration.
 
 ## open\_url
 
-    open_url $url;
+```
+open_url $url;
+```
 
 Opens the given URL in a browser.  If this module doesn't know how to open
 a URL in your configuration or if this module can determine that the
